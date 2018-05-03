@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperManagerPro"
-        mc:Ignorable="d"
+        mc:Ignorable="d" DataContext="{Binding Source={StaticResource Locator},Path=Main}"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Border Background="{StaticResource mainBrush}">
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Height="100">
+                <Image DockPanel.Dock="Left" Margin="16,6"
+                       Source="Resources/SuperManager.ico"/>
+                <StackPanel DockPanel.Dock="Left">
+                    <TextBlock Text="大 掌 柜" Foreground="#1294FF" FontSize="36"
+                               Height="48" FontFamily="tunga" Margin="0,10"/>
+                    <TextBlock Text=" ---- 个体商户管理系统" Margin="20,-8" Foreground="#9FFF" 
+                               FontSize="12" FontStyle="Oblique" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <ContentControl/>
+            </DockPanel>
+            <!--导航菜单栏-->
+            <Border DockPanel.Dock="Left">
+                <StackPanel>
+                    <ContentControl Content="{Binding MerchandiseManagementCommand}"
+                                ContentTemplate="{Binding }"/>
+                    <ContentControl Content="{Binding MerchandiseManagementCommands}"
+                                    ContentTemplate="{Binding}"/> 
+                </StackPanel>
+                
+            </Border>
+            <Border>
+                
+            </Border>
+        </DockPanel>
+    </Border>
 </Window>
