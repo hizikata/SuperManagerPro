@@ -20,12 +20,13 @@
                 <ContentControl/>
             </DockPanel>
             <!--导航菜单栏-->
-            <Border DockPanel.Dock="Left">
+            <Border DockPanel.Dock="Left" Margin="8,0,4,8" BorderThickness="2" BorderBrush="#9FFF">
                 <StackPanel>
                     <ContentControl Content="{Binding MerchandiseManagementCommand}"
-                                ContentTemplate="{Binding }"/>
+                                ContentTemplate="{StaticResource NavigationCommands}"/>
                     <ContentControl Content="{Binding MerchandiseManagementCommands}"
-                                    ContentTemplate="{Binding}"/> 
+                                    ContentTemplate="{StaticResource SubmenuCommands}"
+                                    Visibility="{Binding ShowMerchandiseManagement,Converter={StaticResource boolToVisibility}}"/> 
                 </StackPanel>
                 
             </Border>

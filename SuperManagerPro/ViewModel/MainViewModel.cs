@@ -5,19 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperManagerPro.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : WorkspaceViewModel
     {
         #region Fields
         #endregion
@@ -29,8 +17,23 @@ namespace SuperManagerPro.ViewModel
             get { return _showMerchandiseManagement; }
             set
             {
-                _showMerchandiseManagement = !_showMerchandiseManagement;
+                if (value == _showMerchandiseManagement)
+                    return;
+                _showMerchandiseManagement = value;
                 RaisePropertyChanged(() => ShowMerchandiseManagement);
+            }
+        }
+
+        WorkspaceViewModel _workspace;
+        public WorkspaceViewModel Workspace
+        {
+            get { return _workspace; }
+            set
+            {
+                if (value == _workspace)
+                    return;
+                _workspace = value;
+                RaisePropertyChanged(() => Workspace);
             }
         }
 
@@ -48,7 +51,7 @@ namespace SuperManagerPro.ViewModel
             {
                 List<CommandViewModel> list = new List<CommandViewModel>()
                 {
-                    new CommandViewModel(new RelayCommand<object>(p=>MerchandiseManagement()),"商品管理")
+                    new CommandViewModel(new RelayCommand<object>(p=>MerchandiseManagement()),"商品管理","Merchandise.ico","一些示例文字")
                 };
                 return new ReadOnlyCollection<CommandViewModel>(list);
             }
@@ -59,9 +62,9 @@ namespace SuperManagerPro.ViewModel
             {
                 List<CommandViewModel> list = new List<CommandViewModel>()
                 {
-                    new CommandViewModel(new RelayCommand<object>(p=>SuppliserManagement()),"供应商信息"),
-                    new CommandViewModel(new RelayCommand<object>(p=>MerchandiseInfo()),"商品信息"),
-                    new CommandViewModel(new RelayCommand<object>(p=>InventoryManagement()),"库存信息")
+                    new CommandViewModel(new RelayCommand<object>(p=>SuppliserManagement()),"供应商信息","Supplier.ico"),
+                    new CommandViewModel(new RelayCommand<object>(p=>MerchandiseInfo()),"商品信息","MerchandiseInfo.ico"),
+                    new CommandViewModel(new RelayCommand<object>(p=>InventoryManagement()),"库存信息","Inventory.ico")
                 };
                 return new ReadOnlyCollection<CommandViewModel>(list);
 
@@ -76,7 +79,7 @@ namespace SuperManagerPro.ViewModel
         }
         void SuppliserManagement()
         {
-
+            
         }
         void MerchandiseInfo()
         {
@@ -87,7 +90,17 @@ namespace SuperManagerPro.ViewModel
 
         }
         #endregion
-
+        #region Methods
+        void ChangeWorkspace(WorkspaceViewModel workspace)
+        {
+            if (workspace == _workspace)
+                return;
+            if (Workspace != null)
+                //Dispase方法没有实体？
+                Workspace.Dispose();
+            Workspace = workspace;
+        }
+        #endregion  Methods
 
     }
 }

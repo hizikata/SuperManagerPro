@@ -7,7 +7,7 @@ using GalaSoft.MvvmLight;
 
 namespace SuperManagerPro.ViewModel
 {
-    public class WorkspaceViewModel : ViewModelBase
+    public class WorkspaceViewModel : ViewModelBase,IDisposable
     {
         #region Events
         /// <summary>
@@ -50,6 +50,18 @@ namespace SuperManagerPro.ViewModel
             if (RequestClose != null)
                 RequestClose(this, EventArgs.Empty);
         }
+
+
         #endregion CommandMethods
+        #region IDispase Memebers
+        public void Dispose()
+        {
+            this.OnDispose();
+        }
+        protected virtual void OnDispose()
+        {
+            
+        }
+        #endregion  
     }
 }

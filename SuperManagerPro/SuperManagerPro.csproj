@@ -72,10 +72,13 @@
     </ApplicationDefinition>
     <Compile Include="Model\ModeBase.cs" />
     <Compile Include="Model\Repository.cs" />
+    <Compile Include="Model\Supplier.cs" />
+    <Compile Include="ViewModel\AllSupplierViewModel.cs" />
     <Compile Include="ViewModel\CollectionViewModel.cs" />
     <Compile Include="ViewModel\CommandViewModel.cs" />
     <Compile Include="ViewModel\ItemsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WorkspaceViewModel.cs" />
     <Page Include="Dictionary\Share.xaml">

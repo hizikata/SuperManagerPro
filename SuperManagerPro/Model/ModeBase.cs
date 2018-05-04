@@ -7,6 +7,6 @@ namespace SuperManagerPro.Model
 {
     public class ModelBase
     {
-        public string TableName { get; private set; }
+        public string TableName { get; protected set; }
     }
 }

@@ -20,8 +20,8 @@ namespace SuperManagerPro.ViewModel
         }
         #endregion
         #region Properties
-        bool CanSave { get; set; }
-        public bool IsEdit { get; private set; }
+        protected virtual bool CanSave { get; set; }
+        public bool IsEdit { get; protected set; }
         public bool IsSelected
         {
             get
@@ -38,6 +38,7 @@ namespace SuperManagerPro.ViewModel
                 RaisePropertyChanged(() => IsSelected);
             }
         }
+        public ObservableCollection<ItemsViewModel> AllItems { get; private set; }
         public ReadOnlyCollection<CommandViewModel> Commands
         {
             get
@@ -51,6 +52,7 @@ namespace SuperManagerPro.ViewModel
             }
         }
         #endregion  Properties
+
         #region Methods
         void OnRequestSave()
         {

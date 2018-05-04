@@ -1,30 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SuperManagerPro.ViewModel.WorkspaceViewModel">
-    <Position X="3" Y="1.75" Width="1.5" />
+  <Class Name="SuperManagerPro.ViewModel.WorkspaceViewModel" Collapsed="true">
+    <Position X="8.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAACAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\WorkspaceViewModel.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SuperManagerPro.ViewModel.CommandViewModel">
-    <Position X="4.5" Y="4" Width="2" />
+  <Class Name="SuperManagerPro.ViewModel.CommandViewModel" Collapsed="true">
+    <Position X="12.5" Y="0.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAABAAAAAAAABAAAAAAAAAAAQA=</HashCode>
       <FileName>ViewModel\CommandViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SuperManagerPro.ViewModel.CollectionViewModel">
-    <Position X="1" Y="2" Width="1.5" />
+  <Class Name="SuperManagerPro.ViewModel.CollectionViewModel" Collapsed="true">
+    <Position X="6.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAgQAAABAACAAQAAAAAAAAAEAAAAGABAAEEAgQAA=</HashCode>
       <FileName>ViewModel\CollectionViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GalaSoft.MvvmLight.ViewModelBase">
-    <Position X="6.75" Y="2" Width="1.5" />
+  <Class Name="GalaSoft.MvvmLight.ViewModelBase" Collapsed="true">
+    <Position X="10.75" Y="1" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SuperManagerPro.ViewModel.AllSupplierViewModel" Collapsed="true">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\AllSupplierViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuperManagerPro.ViewModel.ItemsViewModel" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAwAAAAACEAAQAAAAAACCAAAIAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ItemsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuperManagerPro.ViewModel.MainViewModel" Collapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQAgEBAAgAAAAAAAAAAAAAAAABAAAgCAAAQAIA=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="微软雅黑" Size="9" />
 </ClassDiagram>

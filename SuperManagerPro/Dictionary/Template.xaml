@@ -1,5 +1,22 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SuperManagerPro.Dictionary">
-    
+    <DataTemplate x:Key="NavigationCommands">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource NavigationButton}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+    <DataTemplate x:Key="SubmenuCommands">
+        <ItemsControl ItemsSource="{Binding}" IsTabStop="False">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource ImageButton}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate >
 </ResourceDictionary>

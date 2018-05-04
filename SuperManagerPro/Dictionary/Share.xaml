@@ -5,4 +5,5 @@
         <GradientStop Color="#242424" Offset="0"/>
         <GradientStop Color="#101010" Offset="1"/>
     </LinearGradientBrush>
+    <BooleanToVisibilityConverter x:Key="boolToVisibility"/>
 </ResourceDictionary>

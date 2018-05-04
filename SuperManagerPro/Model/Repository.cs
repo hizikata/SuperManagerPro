@@ -15,6 +15,11 @@ namespace SuperManagerPro.Model
 
         #endregion Properties
         #region PublicMethods
+        public void Add(ModelBase model)
+        {
+            
+            
+        }
         #endregion
         #region PrivateMethods
 
