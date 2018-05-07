@@ -56,4 +56,20 @@
         </Setter>
         
     </Style>
+
+    <Style x:Key="CustomItemStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+        <Setter Property="Foreground" Value="#AAA"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+    </Style>
+    <Style x:Key="CustomListView" TargetType="{x:Type ListView}">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Background" Value="#0FFF"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ItemsSource" Value="{Binding AllItems}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource CustomItemStyle}"/>
+    </Style>
+
 </ResourceDictionary>

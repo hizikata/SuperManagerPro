@@ -42,7 +42,7 @@ namespace SuperManagerPro.ViewModel
                 return new ObservableCollection<CommandViewModel>(commands);
             }
         }
-        public ObservableCollection<ItemsViewModel> AllItems { get; private set; }
+        public ObservableCollection<ItemsViewModel> AllItems { get; protected set; }
         public ItemsViewModel SelectedItem
         {
             get
@@ -82,11 +82,11 @@ namespace SuperManagerPro.ViewModel
         }
         #endregion
         #region Virtual Methods
-        public virtual void CreatAll(){ }
-        public virtual void Add() { }
-        public virtual void Delete() { }
-        public virtual void Edit() { }
-        public virtual void Search() { }
+        protected virtual void CreatAll(){ }
+        protected virtual void Add() { }
+        protected virtual void Delete() { }
+        protected virtual void Edit() { }
+        protected virtual void Search() { }
         #endregion Virtual Methods
     }
 }

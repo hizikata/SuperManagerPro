@@ -19,4 +19,20 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </DataTemplate >
+
+    <DataTemplate x:Key="OperationPanel">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="{Binding RelativeSource
+                        ={RelativeSource AncestorType=ContentControl}, Path=HorizontalAlignment}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource OperationButton}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
 </ResourceDictionary>

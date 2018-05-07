@@ -43,6 +43,7 @@ namespace SuperManagerPro.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<AllSupplierViewModel>();
         }
 
         public MainViewModel Main
@@ -51,6 +52,14 @@ namespace SuperManagerPro.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
+        }
+        public AllSupplierViewModel AllSuperlier
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AllSupplierViewModel>();
+            }
+           
         }
         
         public static void Cleanup()

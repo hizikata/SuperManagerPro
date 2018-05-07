@@ -2,6 +2,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using SuperManagerPro.Model;
 
 namespace SuperManagerPro.ViewModel
 {
@@ -11,7 +12,8 @@ namespace SuperManagerPro.ViewModel
         #endregion
         #region Properties
         private bool _showMerchandiseManagement;
-
+        readonly Repository _repository;
+        WorkspaceViewModel _workspace;
         public bool ShowMerchandiseManagement
         {
             get { return _showMerchandiseManagement; }
@@ -24,7 +26,7 @@ namespace SuperManagerPro.ViewModel
             }
         }
 
-        WorkspaceViewModel _workspace;
+        
         public WorkspaceViewModel Workspace
         {
             get { return _workspace; }
@@ -79,11 +81,11 @@ namespace SuperManagerPro.ViewModel
         }
         void SuppliserManagement()
         {
-            
+            ChangeWorkspace( new AllSupplierViewModel(_repository));
         }
         void MerchandiseInfo()
         {
-
+            
         }
         void InventoryManagement()
         {
