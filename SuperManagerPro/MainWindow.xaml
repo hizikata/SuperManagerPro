@@ -30,8 +30,8 @@
                 </StackPanel>
                 
             </Border>
-            <Border>
-                
+            <Border BorderBrush="#9FFF" BorderThickness="2" Margin="8,0,4,8">
+                <ContentControl Content="{Binding Workspace}"/>
             </Border>
         </DockPanel>
     </Border>

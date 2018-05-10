@@ -10,7 +10,6 @@ namespace SuperManagerPro.ViewModel
     {
         #region Fields
         Supplier _model;
-        Repository _repository;
         #endregion
         #region Constructors
         public SupplierViewModel(Supplier model,Repository repository)

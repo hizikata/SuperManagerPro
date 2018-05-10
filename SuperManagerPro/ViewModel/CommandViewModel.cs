@@ -23,11 +23,12 @@ namespace SuperManagerPro.ViewModel
         {
             this.Command = command;
             this.DisplayName = displayName;
-            this.Image = new BitmapImage(
-                new Uri("pack://application:,,,/SuperManagerPro;component/Resources/" + imagePath, UriKind.Absolute));
-            this.Remark = remark;          
+            if (imagePath != null)
+                this.Image = new BitmapImage(
+                    new Uri("pack://application:,,,/SuperManagerPro;component/Resources/" + imagePath, UriKind.Absolute));
+            this.Remark = remark;
         }
-        public CommandViewModel(RelayCommand<object> command,string displayName):this(command,displayName,null,null)
+        public CommandViewModel(RelayCommand<object> command, string displayName) : this(command, displayName, null, null)
         {
 
         }

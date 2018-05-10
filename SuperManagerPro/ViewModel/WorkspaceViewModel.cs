@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight;
+using SuperManagerPro.Model;
 
 namespace SuperManagerPro.ViewModel
 {
@@ -17,9 +18,22 @@ namespace SuperManagerPro.ViewModel
         #endregion
         #region Fields
         RelayCommand<object> _closeCommand;
-
+        protected Repository _repository;
         #endregion
+
         #region Properties
+        public virtual Repository Repository
+        {
+            get
+            {
+                return _repository;
+            }
+            set
+            {
+                _repository = value;
+            }
+
+        }
         /// <summary>
         /// 请求关闭事件
         /// </summary>
@@ -37,7 +51,7 @@ namespace SuperManagerPro.ViewModel
         #region Constructors
         public WorkspaceViewModel()
         {
-
+            Repository = new Repository();
         }
         #endregion
         #region CommandMethods

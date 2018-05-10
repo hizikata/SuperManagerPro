@@ -34,7 +34,7 @@ namespace SuperManagerPro.ViewModel
             {
                 if (value == _isSelected)
                     return;
-                IsSelected = value;
+                _isSelected = value;
                 RaisePropertyChanged(() => IsSelected);
             }
         }

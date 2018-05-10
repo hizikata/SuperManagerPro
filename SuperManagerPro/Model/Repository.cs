@@ -18,8 +18,50 @@ namespace SuperManagerPro.Model
         #region PublicMethods
         public void Add(ModelBase model)
         {
-            
-            
+            if (model is Inventory)
+            {
+                if (((Inventory)model).ID == 0)
+                {
+                    SqlHepler.Execute(SqlHepler.InsertSQL(model));
+                    if (this.ModelAdded != null)
+                        this.ModelAdded(this, new ModelAddedEventArgs(model));
+                }
+                else
+                    SqlHepler.Execute(SqlHepler.UpdateSQL(model));
+            }
+            else if (model is Sale)
+            {
+                if (((Sale)model).ID == 0)
+                {
+                    SqlHepler.Execute(SqlHepler.InsertSQL(model));
+                    if (this.ModelAdded != null)
+                        this.ModelAdded(this, new ModelAddedEventArgs(model));
+                }
+                else
+                {
+                    SqlHepler.Execute(SqlHepler.UpdateSQL(model));
+                    //更新商品库存
+                }
+            }
+            else
+            {
+                if (AlreadyExisting(model))
+                    SqlHepler.Execute(SqlHepler.UpdateSQL(model));
+                else
+                {
+                    SqlHepler.Execute(SqlHepler.InsertSQL(model));
+                    if (model is Employee)
+                    {
+                        User user = new User();
+                        user.EmployeeID = ((Employee)model).ID;
+                        user.Password = "1234";
+                        user.IsAdmin = "0";
+                        SqlHepler.Execute(SqlHepler.InsertSQL(user));
+                    }
+                    if (this.ModelAdded != null)
+                        this.ModelAdded(this, new ModelAddedEventArgs(model));
+                }
+            }
         }
         #endregion
         #region Methods
@@ -47,7 +89,76 @@ namespace SuperManagerPro.Model
             return results;
         }
 
-        #endregion  
+        internal void Delete(object v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Employee> GetEmployee()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetAssociator(string iD)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Update(Associator model)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetSupplier(string iD)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetEmployee(string iD)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetMerchandise(string iD)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IList<Merchandise> GetMerchandise(object p1, object p2)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetSale(int iD)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IList<Associator> GetAssociator()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetRejected(int iD)
+        {
+            throw new NotImplementedException();
+        }
+        public bool AlreadyExisting(ModelBase model)
+        {
+            if (model is Associator && this.GetAssociator(((Associator)model).ID) != null)
+                return true;
+            else if (model is Employee && this.GetEmployee(((Employee)model).ID) != null)
+                return true;
+            else if (model is Supplier && this.GetSupplier(((Supplier)model).ID) != null)
+                return true;
+            else if (model is Merchandise && this.GetMerchandise(((Merchandise)model).ID) != null)
+                return true;
+            else if (model is Rejected && this.GetRejected(((Rejected)model).ID) != null)
+                return true;
+            else
+                return false;
+        }
+        #endregion
         #region PrivateMethods
 
         #endregion

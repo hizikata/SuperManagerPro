@@ -12,7 +12,6 @@ namespace SuperManagerPro.ViewModel
         #endregion
         #region Properties
         private bool _showMerchandiseManagement;
-        readonly Repository _repository;
         WorkspaceViewModel _workspace;
         public bool ShowMerchandiseManagement
         {
@@ -38,12 +37,11 @@ namespace SuperManagerPro.ViewModel
                 RaisePropertyChanged(() => Workspace);
             }
         }
-
         #endregion
         #region Constructors
         public MainViewModel()
         {
-
+           
         }
         #endregion
         #region Commands
@@ -69,7 +67,6 @@ namespace SuperManagerPro.ViewModel
                     new CommandViewModel(new RelayCommand<object>(p=>InventoryManagement()),"库存信息","Inventory.ico")
                 };
                 return new ReadOnlyCollection<CommandViewModel>(list);
-
             }
         }
         #endregion
@@ -79,10 +76,7 @@ namespace SuperManagerPro.ViewModel
         {
             this.ShowMerchandiseManagement = !ShowMerchandiseManagement;
         }
-        void SuppliserManagement()
-        {
-            ChangeWorkspace( new AllSupplierViewModel(_repository));
-        }
+        void SuppliserManagement() => ChangeWorkspace(new AllSupplierViewModel());
         void MerchandiseInfo()
         {
             
@@ -97,10 +91,16 @@ namespace SuperManagerPro.ViewModel
         {
             if (workspace == _workspace)
                 return;
-            if (Workspace != null)
-                //Dispase方法没有实体？
-                Workspace.Dispose();
+            //if (Workspace != null)
+
+            //    Workspace.Dispose();
+            Workspace?.Dispose();
             Workspace = workspace;
+        }
+        protected override void OnDispose()
+        {
+            //todo 重写OnDispose()方法
+            base.OnDispose();
         }
         #endregion  Methods
 

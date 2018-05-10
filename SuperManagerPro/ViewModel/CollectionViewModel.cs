@@ -12,21 +12,26 @@ namespace SuperManagerPro.ViewModel
     public class CollectionViewModel:WorkspaceViewModel
     {
         #region Fields
-        protected Repository _repository;
-        string _fieldName;
-        string _searchValue;
+        //查询条件
+        public string _fieldName;
+        //搜索信息
+        public string _searchValue;
         #endregion Fields
         #region Constructor
-        public CollectionViewModel(Repository repository)
+        public CollectionViewModel()
         {
-            this._repository = repository;
-            this._repository.ModelAdded += OnModelAddedToRepository;
-            this._repository.ModelDeleted += OnModelDeletedToRepository;
-            this.CreatAll();
+            this.Load();
         }
         #endregion Constructor
+        #region Initialize Method
+        public void Load()
+        {
+            Repository.ModelAdded += OnModelAddedToRepository;
+            Repository.ModelDeleted += OnModelDeletedToRepository;
+            this.CreatAll();
+        }
+        #endregion
         #region Properties
-        public int MyProperty { get; set; }
         public ObservableCollection<CommandViewModel> Commands
         {
             get
@@ -72,11 +77,11 @@ namespace SuperManagerPro.ViewModel
         }
         #endregion
         #region Event Methods
-        void OnModelAddedToRepository(object sender,ModelAddedEventArgs e)
+        protected virtual void OnModelAddedToRepository(object sender,ModelAddedEventArgs e)
         {
 
         }
-        void OnModelDeletedToRepository(object sender,ModelDeletedEventArgs e)
+        protected virtual void OnModelDeletedToRepository(object sender,ModelDeletedEventArgs e)
         {
             AllItems.Remove(AllItems.FirstOrDefault<ItemsViewModel>(item => item.IsSelected));
         }

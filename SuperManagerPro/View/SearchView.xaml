@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="SuperManagerPro.View.SearchView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuperManagerPro.View"
+        mc:Ignorable="d">
+    <Grid>
+        <ContentControl ContentTemplate="{StaticResource ChildBorder}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="查询条件："
+                       Style="{StaticResource CustomTextBlock}"/>
+            <ComboBox Grid.Column="2" Grid.Row="1" Style="{StaticResource CustomComboBox}"
+                      ItemsSource="{Binding ListCondition}" DisplayMemberPath="Name" SelectedValuePath="FieldName"
+                      SelectedValue="{Binding SearchCondition,Mode=TwoWay}"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="输入数据："
+                       Style="{StaticResource CustomTextBlock}"/>
+            <TextBox Grid.Column="2" Grid.Row="3" Style="{StaticResource CustomTextBox}"
+                     Text="{Binding SearchValue,UpdateSourceTrigger=PropertyChanged}"/>
+            <ContentControl Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="5"
+                            Content="{Binding Commands}"
+                            ContentTemplate="{StaticResource CommandPanel}"/>
+        </Grid>
+    </Grid>
+</UserControl>
